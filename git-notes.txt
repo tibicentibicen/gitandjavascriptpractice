@@ -241,6 +241,33 @@ Fast-forward
 You will see from the above response that all the changes we made while being in the videoplayer branch have been combined.
 
 
+Working with a remote repository.
+
+Got to Github.com and log in.
+Click the plus sign in the top menu 
+Select create new repository.
+Create a name for your repository
+Select public
+Select create repository with a readme file.
+
+First-time GitHub user, once your repository is created, you will see a green clone or download button. Click on that button and copy the URL.
+
+In terminal:
+Type: git remote add origin https://github.com/tibicentibicen/gitandjavascriptpractice.git 
+Response: you will get no response
+Type: git remote
+Response: origin
+
+Now we want to push our local respository up to the new remote repository we just created. In terminal
+
+Type: git push -u origin mastergit 
+
+
+
+
+
+
+
 
 
 
