@@ -260,7 +260,38 @@ Response: origin
 
 Now we want to push our local respository up to the new remote repository we just created. In terminal
 
-Type: git push -u origin mastergit 
+Type: git push -u origin master
+
+
+Alternative method to syncing up repositories.
+
+1). create your remote repository.
+2). Create new folder on your machine.
+3). Click inside this new folder.
+4). Right click and select Git Bash here.
+5). In terminal
+Type: git init
+Response: Initialized empty Git repository in C:/Users/mecha/Desktop/alternative-test/.git/
+
+6). Go to repository in git hub and click the clone or download button copy the link.
+7). In terminal
+Type: git remote add origin https://github.com/tibicentibicen/gitandjavascriptpractice.git
+Response: no response just a new line
+
+8). Now we have connected to the remote repository. Now we need to pull down the remote files onto our machine. In terminal
+Type: git pull origin master
+Response:
+remote: Counting objects: 16, done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 16 (delta 4), reused 13 (delta 3), pack-reused 0
+Unpacking objects: 100% (16/16), done.
+From https://github.com/tibicentibicen/gitandjavascriptpractice
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+
+
+
+
 
 
 
