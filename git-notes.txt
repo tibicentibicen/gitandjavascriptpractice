@@ -265,7 +265,7 @@ Type: git push -u origin master
 
 Alternative method to syncing up repositories.
 
-1). create your remote repository.
+1). If you don't already have a remote repository, create it first.
 2). Create new folder on your machine.
 3). Click inside this new folder.
 4). Right click and select Git Bash here.
@@ -292,12 +292,26 @@ From https://github.com/tibicentibicen/gitandjavascriptpractice
 You can make your changes then save everything. In terminal
 
 Type: git status
-Response: will show everything that has beenn added and in red
+Response: will show everything that has been modified and in red
 Type: git add .
 Response: no response but stages the files to be commited
 Type: git status
 Response: Now shows files to be commited but in green
 type: git commit -"add your message"
+
+Now that we commited everything we can push the changes up to the remote repository. In terminal
+
+Type: git push -u origin master
+Response: 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 503 bytes | 503.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/tibicentibicen/gitandjavascriptpractice.git
+   6f12424..9e5ec26  master -> master
+
 
 
 
