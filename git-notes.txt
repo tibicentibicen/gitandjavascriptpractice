@@ -1,0 +1,248 @@
+Using Git Bash,
+
+Git bash is a version of Git that enables you to develop and set up local repositories on your machine. 
+
+1). In order to use it, you need to create a new folder for your project in windows explorer.
+2). Right click on the folder then choose "Git Bash Here"
+3). This opens the Git bash version of terminal. This is where you will be doing all your git commands.
+
+You can check to see the version of git you are using and to make sure its installed by typing:
+
+git --version
+
+Response from terminal will be the version number.
+
+Here is a list of all git commands when using GIT locally. In terminal
+
+Type: Git
+Response:
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+
+Once you're inside the terminal you can initialize your local git repository by doing the following:
+
+Type "git init" hit enter
+Response: Initialized empty Git repository in C:/Users/mecha/Desktop/javascript/.git/
+
+This creates the hidden folder called ".git" above and initializes the respository.
+
+In order to create files inside the Git Bash terminal you can use the "Touch" command.
+
+For example,
+
+Type this: Touch index.html
+Response: this creates a file called "index.html" inside your project folder.
+
+Add your name and email address to Git by using the git config command
+
+Adding username:
+Type: git config --global user.name 'Gerry Bunker'
+
+Adding email address:
+Type git config --global user.email 'mechaworx@yahoo.com'
+
+
+Staging a file for commiting to the repository we can use the git add command. There are multiple ways we can add files for staging:
+
+1). Staging single files:
+
+Type: git add index.html
+Response: 
+
+Even though there is no response, the file index.html has been staged. If we want to check what is in the staging area we do the git status command:
+
+Type: git status
+Response:
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        style.css
+
+
+Note: the above response shows that index.html is ready to be committed and "new file: index.html" will appear in green. Since we only did "git add index.html" for staging
+to be committed that is the only one that is getting tracked. "style.css" is still an untracked file and will appear in red inside the terminal.
+
+We can remove a file that has been added for tracking and staging thus cancelling the git add command by doing the following:
+
+Type: git rm --cached index.html
+Response: rm 'index.html'
+
+Type: git status
+Response:
+
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+The above git rm removes the file from staging and is no longer tracked. Now the above response shows that both index.html andd style.css will be in red because they are now untracked.
+
+Different methods of staging files for commit
+1). Staging all files with a particular extension:
+
+	a). git add *.html
+	b). git add *.css
+	c). git add *.js
+
+2). Staging all files 
+
+	a). git add .
+	b). git add --all
+
+
+committing files:
+
+In terminal type:
+
+git commmit
+
+Note: response fromm termal is that you will get an error with messages starting with "#" and later "~". In order to correct this problem you can do the following:
+
+a). press "esc"
+b). type: :wq
+
+This will get you back into terminal proper. 
+
+type git commit -m"your message here"
+response: 
+[master (root-commit) 9d43e34] initial commit
+ 2 files changed, 42 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+The above is a successful commit.
+
+Clearing the Terminal window
+
+type: clear
+Response: this clears out the entire terminal and goes back to line one.
+
+Ignoring certain files.
+Sometimes its not necessary to have git monitor and track certain files like .DS_store, .sass-cache
+some directories or error log files.
+You can have Git ignore these by creating a .gitignore file.
+
+type: touch .gitignore
+response: this will create a file in your project folder. 
+
+Open up your .gitignore file and add each file name inside this file on a separate line and save the file.
+for example, if you want to ignore a log.txt file simply inside .gitignore type in the name log.txt file name, if you want to ignore  entire directories type in the directory name /some-dir-name on a new line.
+
+Once you have all files and directories you want to ignore save the file an do the following:
+
+In terminal:
+type: git add .
+type: git status
+response: .gitignore should show as a new file (first time) or modified
+type: git commit -m"added ignore file"
+
+
+Branching.
+Branching is used when multiple developers are assigned to a single project and each developer is assigned a specific task within the project. For example, one could be responsible for the header section, one could be responsible for a video player section and one could be responsible for a login section. Pushing to a main repository while others are working can cause conflicts.
+
+To create a Branch in terminal:
+Type: git branch videoplayer (this signifies working on a video player).
+Response: you will get no response and you will still be in the Master (trunk)
+
+In terminal type:
+type: git checkout videoplayer
+response: switched to branch 'videoplayer'
+
+You will see in terminal that we are in the video player brancch as indicated by the (videoplayer) in parenthesis.
+
+Now that we are in this branch we can create a video player html page. In terminal
+
+Type: touch videoplayer.html
+a new html file will be created in your directory.
+
+ONce we make our updates in terminal
+
+Type: git add . to stage the file
+Type: git commmit -m"added nnew video player"
+
+response: 
+[videoplayer f9d493e] added new video player
+ 1 file changed, 1 insertion(+)
+ create mode 100644 videoplayer.html
+
+Now the new video file is commited.
+
+In order to switch back to the master branch in terminal
+Type: git checkout master
+Response: Switched to branch 'master'
+
+You will see in terminal that we are in the video player branch as indicated by the (master) in parenthesis.
+Now that we are back in the Master branch, we will want to merge the changes that we added in the videoplayer branch with the master branch. In terminal
+
+Type: git merge videoplayer
+Response:
+
+Updating abd2623..233333c
+Fast-forward
+ index.html       | 1 +
+ videoplayer.html | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 videoplayer.html
+
+You will see from the above response that all the changes we made while being in the videoplayer branch have been combined.
+
+
+
+
+
+
+
