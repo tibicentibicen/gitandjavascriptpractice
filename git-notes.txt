@@ -289,6 +289,16 @@ From https://github.com/tibicentibicen/gitandjavascriptpractice
  * branch            master     -> FETCH_HEAD
  * [new branch]      master     -> origin/master
 
+You can make your changes then save everything. In terminal
+
+Type: git status
+Response: will show everything that has beenn added and in red
+Type: git add .
+Response: no response but stages the files to be commited
+Type: git status
+Response: Now shows files to be commited but in green
+type: git commit -"add your message"
+
 
 
 
