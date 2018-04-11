@@ -444,7 +444,59 @@ Response:
 </body>
 </html>
 
-As you can see our master branch version only has one paragraph whereas our (newbranch) version has two.
+As you can see our master branch version only has one paragraph whereas our (newbranch) version has two. Now we simply do another git merge newbranch to bring in the new changes. Remember to make sure you are in the (master) branch in terminal. Then do a git push origin master up to the repository.
+
+
+Performing pushes to our remote repository over SSH. 
+
+When we originally created our repository, we created a public repository. Because of this, it means that we have given anyone read access to so they can clone or download our repository and they can also make changes. To avoid conflicts we can connect to our repository via ssh. In order to do this go to your remote git hub repository
+
+1)click on the green clone or download button
+2)click on the use ssh link to the right in the dropdown
+3)a new url is shown
+4)In terminal
+Type: ssh-keygen
+Response:
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/mecha/.ssh/id_rsa):
+Created directory '/c/Users/mecha/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/mecha/.ssh/id_rsa.
+Your public key has been saved in /c/Users/mecha/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:qx/qZ/cVn75H6qPvcuO5P8Ukbqi60sSO3TmOf6stTws mecha@DESKTOP-64MPP2S
+The key's randomart image is:
++---[RSA 2048]----+
+|                 |
+|                 |
+|                 |
+|              . .|
+|       .S    o.+ |
+|        o.  . oo=|
+|       *o.Eo...+o|
+|      oo*oB+oo*o.|
+|     .+==*+BBXBB=|
++----[SHA256]-----+
+
+5). In the response above you will see that the key has been saved in /c/Users/mecha/.ssh/id_rsa.pub. In order to see the contents of the key, we use the cat command.
+6). In terminal
+type: cat  /c/Users/mecha/.ssh/id_rsa.pub
+response:
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu6emOraHEVD5MgalH1j61dBQiNuarR0oXWjwDZQ+7CMzMywKoWKcHRyamjiacDUXy1mKBjahBXDzT7l/DAD/keRT8TyoLbEGG6KLzmRS2ctawmOM7VXqFN2j0hhSYfoFVtfdZvtIOdcTVn1LVS27Z1dqx0Thei4185+GHH1dtQaxJIAa0rGfq/ngyVcn4XTSd76p7JlK/oplu25AU4djASUi6RlrE8BUJHxU+5MjuWXVNiG0ghemP/o9cObqsE7a1XR349l2yy0qTMHIHYq6tX4LJ/HxQUajyOWfKtPRL+Dz/uv7DlDgZAgqmUYE4emRTG7GceqcBrPtm42nHGLet mecha@DESKTOP-64MPP2S
+
+7). In the above response contains our encryption key. 
+8). To add this key, go back to your public github account
+9). In the browser upper right-hand corner choose your icon and choose settings
+10). Then choose SSH and GPG Keys from the left hand menu
+11). You will then be taken to a list of SSH and GPG keys. 
+12). Select New SSH Key
+13). Give your key a name
+14). Then copy the key info from terminal into the "key" form field.
+15). Then click the green add ssh key button
+
+You will now notice that you have a new SSH key but it is currently black. This is because it is not yet active.
+
 
 
 
