@@ -339,6 +339,121 @@ Fast-forward
 
 You will see from the above response that all the changes we made while being in the videoplayer branch have been combined.
 
+When working in branches after commiting your changes you can compare files to see what was created in your new branch and compare them to the master branch.
+
+While in your (newbranch), in terminal 
+
+Type: ls
+Response:
+git-notes.txt  log.txt         README.md  videoplayer.html
+index.html     newbranch.html  style.css
+
+The above is a list of all the files tracked in our (newbranch).
+
+You can compare the above (newbranch) list with our (master) branch list. In terminal you need to switch to the master branch.  In terminal:
+
+type: git checkout master
+Response:
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+We have now switched to master branch. In terminal
+type: ls
+response:
+git-notes.txt  index.html  log.txt  README.md  style.css  videoplayer.html
+
+When we compare the two lists we see that the difference is that newbranch.html is not part of the (master) branch yet as it was created while in our (newbranch).
+
+More info on merging branches.
+Merging is a way of combining the work of different branches together. It allows us to branch off, develop a new feature & combine them back together in the master branch.
+
+In order to merge into the master branch we must make sure we are actually in the master branch. Check terminal, if you do not see (master) in blue with parenthesis then you are not in the master branch. In Terminal
+
+type: git checkout master
+Response:
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+We have now switched to master branch. We need to specify the name of the new branch that we want to merge into (master) In terminal
+
+Type: git merge newbranch
+Response:
+Updating 0a9c28f..98dda66
+Fast-forward
+ index.html     | 1 +
+ newbranch.html | 9 +++++++++
+ 2 files changed, 10 insertions(+)
+ create mode 100644 newbranch.html
+
+We see that two files have changed. In terminal
+
+Type: ls
+Response: 
+git-notes.txt  log.txt         README.md  videoplayer.html
+index.html     newbranch.html  style.css
+
+Now we see that the newbranch.html has been added to the master branch, whereas  in the previous list it was not.
+
+We can continue to modify the newbranch.html file in our (newbranch) and it will not affect our master branch. We do this by switching back. In terminal
+
+type: git checkout newbranch
+response: Switched to branch 'newbranch'
+
+Now that you are back in (newbranch) make changes to newbranch.html. Once we are done in terminal 
+
+Type: git commit -a -m "made additional changes"
+
+Note the "-a" flag above. Since newbranch.html has already been added to the master branch in the repository and is being tracked we can use the "-a" flag to combine it to our commit. We can add all and commit at the same time. This will not work if we have not added it originally.
+
+Response: 
+[newbranch f587581] modified newbranch.html
+ 1 file changed, 1 insertion(+)
+
+Now that we have modified this file in (newbranch) we can see those changes. In terminal
+
+Type: cat newbranch.html
+<!DOCTYPE html>
+<html>
+<head>
+        <title>New Branch for Git Test</title>
+</head>
+<body>
+        <p>this is my new branch</p>
+        <p>this is my part 2 edit</p>
+</body>
+</html>
+
+Note: cat is a command line command that lists the contents of a file. In this case it is listing the contents of newbranch.html.
+We can compare this change with our (master) branch. In terminal
+
+Type: git checkout master
+Response: 
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Type: cat newbranch.html
+Response: 
+<!DOCTYPE html>
+<html>
+<head>
+        <title>New Branch for Git Test</title>
+</head>
+<body>
+        <p>this is my new branch</p>
+</body>
+</html>
+
+As you can see our master branch version only has one paragraph whereas our (newbranch) version has two.
+
+
+
+
+
+
+
+
+
 
 
 
