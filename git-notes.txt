@@ -495,7 +495,23 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu6emOraHEVD5MgalH1j61dBQiNuarR0oXWjwDZQ+7
 14). Then copy the key info from terminal into the "key" form field.
 15). Then click the green add ssh key button
 
-You will now notice that you have a new SSH key but it is currently black. This is because it is not yet active.
+You will now notice that you have a new SSH key but it is currently black. This is because it is not yet active. In order to activate it in terminal
+
+Type: ssh -T git@github.com
+Response:
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)?
+
+Type: yes
+Response:
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Hi tibicentibicen! You've successfully authenticated, but GitHub does not provide shell access.
+
+Not sure if this is a one-time message but we now have secure access to our repository. 
+If we go back to the remote repository and refresh the page that contains our SSH Keys you will see that the key is now green meaning it is now proprly authenticated. We can now push up to the repository.
+
+
 
 
 
