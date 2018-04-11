@@ -191,54 +191,6 @@ response: .gitignore should show as a new file (first time) or modified
 type: git commit -m"added ignore file"
 
 
-Branching.
-Branching is used when multiple developers are assigned to a single project and each developer is assigned a specific task within the project. For example, one could be responsible for the header section, one could be responsible for a video player section and one could be responsible for a login section. Pushing to a main repository while others are working can cause conflicts.
-
-To create a Branch in terminal:
-Type: git branch videoplayer (this signifies working on a video player).
-Response: you will get no response and you will still be in the Master (trunk)
-
-In terminal type:
-type: git checkout videoplayer
-response: switched to branch 'videoplayer'
-
-You will see in terminal that we are in the video player brancch as indicated by the (videoplayer) in parenthesis.
-
-Now that we are in this branch we can create a video player html page. In terminal
-
-Type: touch videoplayer.html
-a new html file will be created in your directory.
-
-ONce we make our updates in terminal
-
-Type: git add . to stage the file
-Type: git commmit -m"added nnew video player"
-
-response: 
-[videoplayer f9d493e] added new video player
- 1 file changed, 1 insertion(+)
- create mode 100644 videoplayer.html
-
-Now the new video file is commited.
-
-In order to switch back to the master branch in terminal
-Type: git checkout master
-Response: Switched to branch 'master'
-
-You will see in terminal that we are in the video player branch as indicated by the (master) in parenthesis.
-Now that we are back in the Master branch, we will want to merge the changes that we added in the videoplayer branch with the master branch. In terminal
-
-Type: git merge videoplayer
-Response:
-
-Updating abd2623..233333c
-Fast-forward
- index.html       | 1 +
- videoplayer.html | 1 +
- 2 files changed, 2 insertions(+)
- create mode 100644 videoplayer.html
-
-You will see from the above response that all the changes we made while being in the videoplayer branch have been combined.
 
 
 Working with a remote repository.
@@ -312,7 +264,80 @@ remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
 To https://github.com/tibicentibicen/gitandjavascriptpractice.git
    6f12424..9e5ec26  master -> master
 
+Now we are done.
+To see a list of commits in a repository. In terminal
 
+Type: git log
+Response:
+
+commit 242cc039233a94517558b97352a7cbc0d65a59db (HEAD -> master, origin/master, origin/HEAD)
+Author: Gerry Bunker <mechaworx@yahoo.com>
+Date:   Tue Apr 10 14:55:54 2018 -0400
+
+    playing between local repositories still
+
+commit 9e5ec269651adf7cead6d7079043bdc58aa5f4d4
+Author: Gerry Bunker <mechaworx@yahoo.com>
+Date:   Tue Apr 10 14:41:59 2018 -0400
+
+    playing between two local repositories.
+
+commit 6f12424b8de80d7b58f2bbd37f2b94f199e2158c
+Author: Gerry Bunker <mechaworx@yahoo.com>
+Date:   Tue Apr 10 14:27:38 2018 -0400
+
+    added alternative repository creation method
+
+Above is the list of all commits
+
+Branching.
+Branching is used when multiple developers are assigned to a single project and each developer is assigned a specific task within the project. For example, one could be responsible for the header section, one could be responsible for a video player section and one could be responsible for a login section. Pushing to a main repository while others are working can cause conflicts.
+
+To create a Branch in terminal:
+Type: git branch videoplayer (this signifies working on a video player).
+Response: you will get no response and you will still be in the Master (trunk)
+
+In terminal type:
+type: git checkout videoplayer
+response: switched to branch 'videoplayer'
+
+You will see in terminal that we are in the video player brancch as indicated by the (videoplayer) in parenthesis.
+
+Now that we are in this branch we can create a video player html page. In terminal
+
+Type: touch videoplayer.html
+a new html file will be created in your directory.
+
+ONce we make our updates in terminal
+
+Type: git add . to stage the file
+Type: git commmit -m"added nnew video player"
+
+response: 
+[videoplayer f9d493e] added new video player
+ 1 file changed, 1 insertion(+)
+ create mode 100644 videoplayer.html
+
+Now the new video file is commited.
+
+In order to switch back to the master branch in terminal
+Type: git checkout master
+Response: Switched to branch 'master'
+
+You will see in terminal that we are in the video player branch as indicated by the (master) in parenthesis.
+Now that we are back in the Master branch, we will want to merge the changes that we added in the videoplayer branch with the master branch. In terminal
+
+Type: git merge videoplayer
+Response:
+
+Updating abd2623..233333c
+Fast-forward
+ index.html       | 1 +
+ videoplayer.html | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 videoplayer.html
+
+You will see from the above response that all the changes we made while being in the videoplayer branch have been combined.
 
 
 
